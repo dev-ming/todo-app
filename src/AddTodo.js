@@ -20,6 +20,12 @@ class AddTodo extends Component {
     this.setState({ item: { title: "" } });
   };
 
+  enterKeyEventHandler = (e) => {
+    if (e.key === "Enter") {
+      this.onButtonClick();
+    }
+  };
+
   render() {
     return (
       <Paper style={{ margin: 16, padding: 16 }}>
@@ -30,6 +36,7 @@ class AddTodo extends Component {
               fullWidth
               onChange={this.onInputChange}
               value={this.state.item.title}
+              onKeyPress={this.enterKeyEventHandler}
             />
           </Grid>
           <Grid xs={1} md={1} item>
